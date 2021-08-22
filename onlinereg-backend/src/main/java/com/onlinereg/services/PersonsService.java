@@ -24,8 +24,8 @@ public class PersonsService {
 
     public List<Person> getAllPersons() {
         List<Person> persons = new ArrayList<>();
-        List<Persons> storedPersons = repository.findAll();
-        for(Persons p: storedPersons) {
+        // List<Persons> storedPersons = ;
+        for(Persons p: repository.findAll()) {
             persons.add(mapPerson(p));
         }
         return persons;

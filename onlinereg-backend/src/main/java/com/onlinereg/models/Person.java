@@ -6,7 +6,13 @@ public class Person {
     private String surname;
     private String telephone;
 
-    public Person() { }
+    public Person() {}
+    
+    public Person(String fullname, String surname, String telephone) { 
+        this.fullname = fullname;
+        this.surname = surname;
+        this.telephone = telephone;
+    }
 
     public String getFullname() { return fullname; }
 

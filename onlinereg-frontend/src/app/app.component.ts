@@ -36,7 +36,6 @@ export class AppComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.warn('User', this.personForm.value);
     this.userService.addUser(this.personForm.value).subscribe(u => {
       this.persons.push(u);
     });

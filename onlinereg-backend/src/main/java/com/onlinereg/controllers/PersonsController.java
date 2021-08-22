@@ -7,6 +7,8 @@ import javax.annotation.Resource;
 import com.onlinereg.models.Person;
 import com.onlinereg.services.PersonsService;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,8 +29,12 @@ public class PersonsController {
     }
 
     @PostMapping("/save")
-    public Person saveCustomer(final @RequestBody Person person) {
-        System.out.println(person.toString());
-        return personsService.save(person);
+    public ResponseEntity<Object> saveCustomer(final @RequestBody Person person) {
+        if(!person.getFullname().isEmpty() && !person.getSurname().isEmpty() && !person.getTelephone().isEmpty()) {
+            Person p = personsService.save(person);;
+            return new ResponseEntity<>(p, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("ERROR: Please enter valid information", HttpStatus.BAD_REQUEST);
+        }
     }
 }

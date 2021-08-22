@@ -20,6 +20,12 @@ public class Persons {
 
     public Persons() { }
 
+    public Persons(String fullname, String surname, String telephone) { 
+        this.fullname = fullname;
+        this.surname = surname;
+        this.telephone = telephone;
+    }
+
     public long getId() { return id; }
 
     public String getFullname() { return fullname; }

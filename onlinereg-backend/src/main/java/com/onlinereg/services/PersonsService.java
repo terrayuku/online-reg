@@ -17,14 +17,12 @@ public class PersonsService {
     PersonsRepository repository;
 
     public Person save(Person person) {
-        System.out.println("Service " + person.toString());
         Persons persons = storePersonData(person);
         return mapPerson(repository.save(persons));
     }
 
     public List<Person> getAllPersons() {
         List<Person> persons = new ArrayList<>();
-        // List<Persons> storedPersons = ;
         for(Persons p: repository.findAll()) {
             persons.add(mapPerson(p));
         }

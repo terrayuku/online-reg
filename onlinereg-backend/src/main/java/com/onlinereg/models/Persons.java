@@ -2,13 +2,17 @@ package com.onlinereg.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Persons {
 
     @Id
-    @GeneratedValue
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name="identifier", sequenceName="mytable_id_seq", allocationSize=1)  
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="identifier")
     private long id;
     private String fullname;
     private String surname;
@@ -23,6 +27,8 @@ public class Persons {
     public String getSurname() { return surname; }
 
     public String getTelephone() { return telephone; }
+
+    public void setId(long id) { this.id = id; }
 
     public void setFullname(String fullname) { this.fullname = fullname; }
 

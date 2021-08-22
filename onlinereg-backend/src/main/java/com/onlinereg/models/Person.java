@@ -1,7 +1,7 @@
 package com.onlinereg.models;
 
 public class Person {
-    
+
     private String fullname;
     private String surname;
     private String telephone;
@@ -19,4 +19,9 @@ public class Person {
     public void setSurname(String surname) { this.surname = surname; }
 
     public void setTelephone(String telephone) { this.telephone = telephone; }
+
+    @Override
+    public String toString() {
+        return this.fullname + " " + this.surname + " " + this.telephone;
+    }
 }

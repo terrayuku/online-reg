@@ -17,6 +17,7 @@ public class PersonsService {
     PersonsRepository repository;
 
     public Person save(Person person) {
+        System.out.println("Service " + person.toString());
         Persons persons = storePersonData(person);
         return mapPerson(repository.save(persons));
     }

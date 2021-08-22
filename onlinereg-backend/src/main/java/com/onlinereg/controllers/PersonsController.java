@@ -29,10 +29,10 @@ public class PersonsController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<String> saveCustomer(final @RequestBody Person person) {
+    public ResponseEntity<Object> saveCustomer(final @RequestBody Person person) {
         if(!person.getFullname().isEmpty() && !person.getSurname().isEmpty() && !person.getTelephone().isEmpty()) {
             Person p = personsService.save(person);;
-            return new ResponseEntity<>("Success", HttpStatus.OK);
+            return new ResponseEntity<>(p, HttpStatus.OK);
         } else {
             return new ResponseEntity<>("ERROR: Please enter valid information", HttpStatus.BAD_REQUEST);
         }

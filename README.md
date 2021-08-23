@@ -4,7 +4,7 @@ This application is for assessment purposes only.
 
 ## Running the database
 
-Use the ./db.sh script for running the postgres database using docker compose.
+Use the ./db.sh script for running the postgres database using docker compose in the root of the application
 
 ## Running the frontend
 To run the frontend. Please change directory into the application and use its ./run.sh for running it and it will expose localhost:4200
